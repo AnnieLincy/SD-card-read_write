@@ -22,8 +22,8 @@ public class MainActivity extends Activity {
     TextView response;
     Button saveButton,readButton;
 
-    private String filename = "SampleFile.txt";
-    private String filepath = "MyFileStorage";
+    private String filename = "Sample.txt";
+    private String filepath = "";
     File myExternalFile;
     String myData = "";
 
@@ -36,8 +36,7 @@ public class MainActivity extends Activity {
         response = (TextView) findViewById(R.id.response);
 
 
-         saveButton =
-                (Button) findViewById(R.id.saveExternalStorage);
+         saveButton =(Button) findViewById(R.id.saveExternalStorage);
         saveButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +48,7 @@ public class MainActivity extends Activity {
                     e.printStackTrace();
                 }
                 inputText.setText("");
-                response.setText("SampleFile.txt saved to External Storage...");
+                response.setText("Sample.txt saved to External Storage...");
             }
         });
 
@@ -71,7 +70,7 @@ public class MainActivity extends Activity {
                     e.printStackTrace();
                 }
                 inputText.setText(myData);
-                response.setText("SampleFile.txt data retrieved from Internal Storage...");
+                response.setText("Sample.txt data retrieved from Internal Storage...");
             }
         });
 
@@ -79,7 +78,7 @@ public class MainActivity extends Activity {
             saveButton.setEnabled(false);
         }
         else {
-            myExternalFile = new File(getExternalFilesDir(filepath), filename);
+            myExternalFile = new File(getExternalFilesDir(""), filename);
         }
 
 
